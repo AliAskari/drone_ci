@@ -1,0 +1,20 @@
+---
+kind: pipeline
+type: docker
+name: linux-amd64
+
+platform:
+  arch: amd64
+  os: linux
+  
+steps:
+- name: build
+  image: conanio/gcc9
+  commands:
+  - mkdir build
+  - cmake -GNinja -B build -S .
+  - ./build/drone_ci
+  
+  when:
+    event:
+    - push
