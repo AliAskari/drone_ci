@@ -11,10 +11,11 @@ steps:
 - name: build
   image: conanio/gcc9
   commands:
+  - whoami
   - pwd
   - ls -lath
   - ls -lath /
-  - mkdir build
+  - sudo mkdir build
   - cmake -GNinja -B build -S .
   - ./build/drone_ci
   
