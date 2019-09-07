@@ -9,13 +9,9 @@ platform:
   
 steps:
 - name: build
-  image: conanio/gcc9
+  image: rikorose/gcc-cmake
   commands:
-  - whoami
-  - pwd
-  - ls -lath
-  - ls -lath /
-  - sudo mkdir build
+  - mkdir build
   - cmake -GNinja -B build -S .
   - ./build/drone_ci
   
