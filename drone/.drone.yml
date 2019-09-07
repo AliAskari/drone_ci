@@ -14,7 +14,7 @@ steps:
   - mkdir build
   - cmake -B build -S .
   - cd build && make -j4
-  - ./build/drone_ci
+  - ./drone_ci
   
   when:
     event:
