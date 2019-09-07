@@ -12,7 +12,7 @@ steps:
   image: rikorose/gcc-cmake
   commands:
   - mkdir build
-  - cmake -GNinja -B build -S .
+  - cmake -B build -S .
   - ./build/drone_ci
   
   when:
