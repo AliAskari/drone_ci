@@ -11,9 +11,9 @@ steps:
 - name: build
   image: rikorose/gcc-cmake
   commands:
-  - mkdir build
-  - cmake -B build -S .
-  - cd build && make -j4
+  - mkdir build && cd build
+  - cmake -GNinja -B .. -S ../
+  - ninja
   - ./drone_ci
   
   when:
