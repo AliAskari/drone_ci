@@ -9,11 +9,12 @@ platform:
   
 steps:
 - name: build
-  image: conanio/gcc9
+  image: rikorose/gcc-cmake
   commands:
   - mkdir build
-  - cmake -GNinja -B build -S .
-  - ./build/drone_ci
+  - cmake -B build -S .
+  - cd build && make -j4
+  - ./drone_ci
   
   when:
     event:
