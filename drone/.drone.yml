@@ -8,14 +8,61 @@ platform:
   os: linux
   
 steps:
-- name: build
+- name: static check 1
   image: rikorose/gcc-cmake
   commands:
-  - mkdir build
-  - cmake -B build -S .
-  - cd build && make -j4
-  - ./drone_ci
+  - echo "static check #1"
+
+- name: static check 2
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "static check #2"
   
-  when:
-    event:
-    - push
+- name: static check 3
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "static check #3"
+
+- name: static check 4
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "static check #4"
+  
+- name: build 1 
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "build job #1"
+  depends on:
+  - static check 1
+  - static check 2
+  - static check 3
+  - static check 4
+  
+- name: build 2
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "build job #2"
+  depends on:
+  - static check 1
+  - static check 2
+  - static check 3
+  - static check 4  
+  
+- name: build 3
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "build job #3"
+  depends on:
+  - static check 1
+  - static check 2
+  - static check 3
+  - static check 4
+- name: build 4
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "build job #4"
+  depends on:
+  - static check 1
+  - static check 2
+  - static check 3
+  - static check 4  
