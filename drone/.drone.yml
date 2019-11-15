@@ -28,7 +28,7 @@ steps:
   commands:
   - echo "static_check_number 4"
   
-depends_on: clone
+depends_on: [ clone ]
 
 ---
 kind: pipeline
