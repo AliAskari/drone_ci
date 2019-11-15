@@ -8,61 +8,62 @@ platform:
   os: linux
   
 steps:
-- name: static check 1
+- name: static_check_1
   image: rikorose/gcc-cmake
   commands:
-  - echo "static check #1"
+  - echo "static_check_number 1"
 
-- name: static check 2
+- name: static_check_2
   image: rikorose/gcc-cmake
   commands:
-  - echo "static check #2"
+  - echo "static_check_number 2"
   
-- name: static check 3
+- name: static_check_3
   image: rikorose/gcc-cmake
   commands:
-  - echo "static check #3"
+  - echo "static_check_number 3"
 
-- name: static check 4
+- name: static_check_4
   image: rikorose/gcc-cmake
   commands:
-  - echo "static check #4"
+  - echo "static_check_number 4"
   
-- name: build 1 
+- name: build_1
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job #1"
+  - echo "build job number 1"
   depends on:
-  - static check 1
-  - static check 2
-  - static check 3
-  - static check 4
+  - static_check_1
+  - static_check_2
+  - static_check_3
+  - static_check_4
   
-- name: build 2
+- name: build_2
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job #2"
+  - echo "build job number 2"
   depends on:
-  - static check 1
-  - static check 2
-  - static check 3
-  - static check 4  
+  - static_check_1
+  - static_check_2
+  - static_check_3
+  - static_check_4  
   
-- name: build 3
+- name: build_3
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job #3"
+  - echo "build job number 3"
   depends on:
-  - static check 1
-  - static check 2
-  - static check 3
-  - static check 4
-- name: build 4
+  - static_check_1
+  - static_check_2
+  - static_check_3
+  - static_check_4
+  
+- name: build_4
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job #4"
+  - echo "build job number 4"
   depends on:
-  - static check 1
-  - static check 2
-  - static check 3
-  - static check 4  
+  - static_check_1
+  - static_check_2
+  - static_check_3
+  - static_check_4  
