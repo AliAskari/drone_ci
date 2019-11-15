@@ -27,7 +27,8 @@ steps:
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 4"
-  
+depends_on:
+ - clone
 ---
 kind: pipeline
 type: docker
