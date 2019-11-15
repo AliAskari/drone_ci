@@ -12,23 +12,25 @@ steps:
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 1"
-
+  depends_on: [ clone ]
+  
 - name: qnx cppcheck
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 2"
+  depends_on: [ clone ]
   
 - name: linux clang
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 3"
-
+  depends_on: [ clone ]
+  
 - name: qnx clang 
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 4"
-  
-depends_on: [ clone ]
+  depends_on: [ clone ]
 
 ---
 kind: pipeline
