@@ -35,7 +35,31 @@ steps:
 ---
 kind: pipeline
 type: docker
-name: build
+name: debug build
+
+platform:
+  arch: amd64
+  os: linux
+  
+- name: linux debug
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "build job number 3"
+  depends_on: [ clone ]
+
+- name: qnx debug
+  image: rikorose/gcc-cmake
+  commands:
+  - echo "build job number 4"
+  depends_on: [ clone ]
+
+depends_on:
+- analysis
+
+---
+kind: pipeline
+type: docker
+name: release build
 
 platform:
   arch: amd64
@@ -58,19 +82,7 @@ steps:
   depends_on: [ clone ]
   when:
     event:
-    - pull_request  
-  
-- name: linux debug
-  image: rikorose/gcc-cmake
-  commands:
-  - echo "build job number 3"
-  depends_on: [ clone ]
-
-- name: qnx debug
-  image: rikorose/gcc-cmake
-  commands:
-  - echo "build job number 4"
-  depends_on: [ clone ]
+    - pull_request
 
 depends_on:
 - analysis
