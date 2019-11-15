@@ -35,7 +35,7 @@ steps:
 ---
 kind: pipeline
 type: docker
-name: debug build
+name: build
 
 platform:
   arch: amd64
