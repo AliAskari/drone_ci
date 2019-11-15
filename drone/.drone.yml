@@ -8,22 +8,22 @@ platform:
   os: linux
   
 steps:
-- name: check: linux cppcheck
+- name: linux cppcheck
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 1"
 
-- name: check: qnx cppcheck
+- name: qnx cppcheck
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 2"
   
-- name: check: linux clang
+- name: linux clang
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 3"
 
-- name: check: qnx clang 
+- name: qnx clang 
   image: rikorose/gcc-cmake
   commands:
   - echo "static_check_number 4"
