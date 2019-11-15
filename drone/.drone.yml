@@ -59,7 +59,7 @@ steps:
   - echo "build job number 4" 
 
 depends_on:
-- static_check_1
-- static_check_2
-- static_check_3
-- static_check_4
+- linux cppcheck
+- qnx cppcheck
+- linux clang
+- qnx clang
