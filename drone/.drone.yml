@@ -18,52 +18,18 @@ steps:
   commands:
   - echo "static_check_number 2"
   
-- name: static_check_3
-  image: rikorose/gcc-cmake
-  commands:
-  - echo "static_check_number 3"
-
-- name: static_check_4
-  image: rikorose/gcc-cmake
-  commands:
-  - echo "static_check_number 4"
-  
 - name: build_1
   image: rikorose/gcc-cmake
   commands:
   - echo "build job number 1"
-  depends on:
+  depends_on:
   - static_check_1
   - static_check_2
-  - static_check_3
-  - static_check_4
   
 - name: build_2
   image: rikorose/gcc-cmake
   commands:
   - echo "build job number 2"
-  depends on:
+  depends_on:
   - static_check_1
   - static_check_2
-  - static_check_3
-  - static_check_4  
-  
-- name: build_3
-  image: rikorose/gcc-cmake
-  commands:
-  - echo "build job number 3"
-  depends on:
-  - static_check_1
-  - static_check_2
-  - static_check_3
-  - static_check_4
-  
-- name: build_4
-  image: rikorose/gcc-cmake
-  commands:
-  - echo "build job number 4"
-  depends on:
-  - static_check_1
-  - static_check_2
-  - static_check_3
-  - static_check_4  
