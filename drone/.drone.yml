@@ -46,21 +46,25 @@ steps:
   image: rikorose/gcc-cmake
   commands:
   - echo "build job number 1"
+  depends_on: [ clone ]
   
 - name: build_2
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job number 2" 
+  - echo "build job number 2"
+  depends_on: [ clone ]
   
 - name: build_3
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job number 3" 
+  - echo "build job number 3"
+  depends_on: [ clone ]
 
 - name: build_4
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job number 4" 
+  - echo "build job number 4"
+  depends_on: [ clone ]
 
 depends_on:
 - static check
