@@ -37,6 +37,7 @@ platform:
   arch: amd64
   os: linux
 
+steps:
 - name: build_1
   image: rikorose/gcc-cmake
   commands:
