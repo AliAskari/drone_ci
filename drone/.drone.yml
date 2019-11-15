@@ -28,42 +28,37 @@ steps:
   commands:
   - echo "static_check_number 4"
   
+---
+kind: pipeline
+type: docker
+name: linux-amd64
+
+platform:
+  arch: amd64
+  os: linux
+
 - name: build_1
   image: rikorose/gcc-cmake
   commands:
   - echo "build job number 1"
-  depends_on:
-  - static_check_1
-  - static_check_2
-  - static_check_3
-  - static_check_4
   
 - name: build_2
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job number 2"
-  depends_on:
-  - static_check_1
-  - static_check_2
-  - static_check_3
-  - static_check_4  
+  - echo "build job number 2" 
   
 - name: build_3
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job number 3"
-  depends_on:
-  - static_check_1
-  - static_check_2
-  - static_check_3
-  - static_check_4
+  - echo "build job number 3" 
 
 - name: build_4
   image: rikorose/gcc-cmake
   commands:
-  - echo "build job number 4"
-  depends_on:
-  - static_check_1
-  - static_check_2
-  - static_check_3
-  - static_check_4
+  - echo "build job number 4" 
+
+depends_on:
+- static_check_1
+- static_check_2
+- static_check_3
+- static_check_4
